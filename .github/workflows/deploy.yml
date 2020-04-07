@@ -1,0 +1,32 @@
+on:
+  release:
+    tags:
+      - '*'
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Step 1
+        run: |
+          echo "Build Step 1"
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Test Step 1
+        run: |
+          echo "Test Step 1"
+
+  deploy_prod_pypi:
+    name: Deploy Prod PyPI
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Deploy Prod PyPI Step 1
+        run: |
+          echo "Deploy Prod PyPI Step 1"
