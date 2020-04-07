@@ -26,6 +26,7 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Test Step 1
         run: |
@@ -34,6 +35,7 @@ jobs:
   deploy_test_pypi:
     name: Deploy Test PyPI
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: Deploy Test PyPI Step 1
         run: |
@@ -42,6 +44,7 @@ jobs:
   deploy_prod_pypi:
     name: Deploy Prod PyPI
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: Deploy Prod PyPI Step 1
         run: |
