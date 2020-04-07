@@ -1,6 +1,7 @@
 on:
-  push:
-    branches-ignore: master
+  release:
+    tags:
+      - '*'
 
 jobs:
 
@@ -21,11 +22,11 @@ jobs:
         run: |
           echo "Test Step 1"
 
-  deploy_test_pypi:
-    name: Deploy Test PyPI
+  deploy_prod_pypi:
+    name: Deploy Prod PyPI
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - name: Deploy Test PyPI Step 1
+      - name: Deploy Prod PyPI Step 1
         run: |
-          echo "Deploy Test PyPI Step 1"
+          echo "Deploy Prod PyPI Step 1"
